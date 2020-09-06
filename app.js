@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const compression = require('compression');
+const helmet = require('helmet');
 const fileUpload = require('express-fileupload');
 const AppError = require('./util/appError');
 
@@ -17,6 +19,12 @@ const subjectRouter = require('./routes/subjectRoutes');
 
 // Cors
 app.use(cors());
+
+// Helmet
+app.use(helmet());
+
+// Compression
+app.use(compression());
 
 // Express File Upload
 app.use(fileUpload());
