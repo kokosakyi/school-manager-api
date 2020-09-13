@@ -18,6 +18,11 @@ router.post('/', authController.restrictTo('admin'), classGroupController.create
 // @access Private
 router.get('/', classGroupController.getClassGroups);
 
+// @route GET api/v1/class-groups/:classGroupId
+// @desc Get ClassGroup with provided Id
+// @access Private
+router.get('/:classGroupId', classGroupController.getClassGroup);
+
 // @route POST api/v1/class-groups/update
 // @desc Add New ClassGroups
 // @access Private

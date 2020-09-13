@@ -70,3 +70,17 @@ exports.updateClassGroups = async (req, res, next) => {
         return next(new AppError(err, 400));
     }
 }
+
+exports.getClassGroup = async (req, res, next) => {
+    try {
+        const classGroupId = req.params.classGroupId;
+        
+        const classGroup = await ClassGroup.findById(classGroupId);
+        res.status(200).json({
+            status: 'success',
+            data: classGroup
+        })
+    } catch (error) {
+        return next(new AppError(err, 400));
+    }
+}

@@ -13,6 +13,7 @@ const studentRouter = require('./routes/studentRoutes');
 const authRouter = require('./routes/authRoutes');
 const guardianRouter = require('./routes/guardianRoutes');
 const classGroupRouter = require('./routes/classGroupRoutes');
+const classRouter = require('./routes/classRoutes');
 const subjectRouter = require('./routes/subjectRoutes');
 
 // MIDDLEWARE
@@ -45,6 +46,8 @@ app.use('/api/v1/students', studentRouter);
 app.use('/api/v1/guardians', guardianRouter);
 app.use('/api/v1/class-groups', classGroupRouter);
 app.use('/api/v1/subjects', subjectRouter);
+app.use('/api/v1/classes', classRouter);
+
 
 // Handle all other requests
 app.use((req, res, next)=> {

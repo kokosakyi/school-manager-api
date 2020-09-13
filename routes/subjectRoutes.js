@@ -52,6 +52,13 @@ router.put('/subject-detail/:subjectId', subjectValidationRules(), validate, aut
 // @access Private
 router.get('/', subjectController.getSubjects);
 
+
+// @route GET api/v1/subjects/subject-detail/:subjectId
+// @desc Get Subject with provided Id
+// @access Private
+router.get('/:classGroup', subjectController.findSubjectsByClassGroup);
+
+
 // @route GET api/v1/subjects/subject-detail/:subjectId
 // @desc Get Subject with provided Id
 // @access Private

@@ -43,6 +43,21 @@ exports.getSubjects = async (req, res, next)=> {
     }
 }
 
+exports.findSubjectsByClassGroup = async (req, res, next)=> {
+    try {
+        const classGroup = req.params.classGroup;
+        const subjects = await Subject.find({ classGroup });
+        res.status(200).json({
+            status: 'success',
+            data: subjects
+        })
+    } catch (error) {
+        return next(new AppError(error.message, 400));
+    }
+    
+    
+}
+
 exports.getSubject = async (req, res, next)=> {
     try {
         const subjectId = req.params.subjectId;
