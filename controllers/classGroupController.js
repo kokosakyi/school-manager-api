@@ -84,3 +84,19 @@ exports.getClassGroup = async (req, res, next) => {
         return next(new AppError(err, 400));
     }
 }
+
+exports.getClassGroupByName = async(req, res, next) => {
+    try {
+        
+        const classGroupName = req.params.classGroupName;
+
+        console.log(classGroupName);
+        const classGroup = await ClassGroup.find({ name: classGroupName });
+        res.status(200).json({
+            status: 'success',
+            data: classGroup
+        })
+    } catch (error) {
+        return next(new AppError(err, 400));
+    }
+}

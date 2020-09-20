@@ -26,7 +26,7 @@ exports.createClass = async (req, res, next) => {
 
 exports.getClasses = async (req, res, next) => {
     try {
-        const classes = await ClassModel.find();
+        const classes = await ClassModel.find().populate('classGroup');
         res.status(200).json({
             status: 'success',
             data: classes
@@ -38,10 +38,11 @@ exports.getClasses = async (req, res, next) => {
 }
 
 exports.getClass = async (req, res, next) => {
-
     try {
         const classId = req.params.classId;
+        console.log(classId);
         const classObj = await ClassModel.findById(classId).populate('classGroup').populate('subjects');
+        console.log(classObj);
         res.status(200).json({
             status: 'success',
             data: classObj
